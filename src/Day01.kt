@@ -1,10 +1,20 @@
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    fun part1(input: List<String>): Int{
+        var valid = 0
+        for (word in input) {
+            val words = word.split(" ")
+            if (words.size == words.toSet().size )
+                valid += 1
+
+        }
+        return valid
     }
 
+
     fun part2(input: List<String>): Int {
-        return input.size
+        return input
+            .map { it.split(" ") }
+            .count { it.size == it.toSet().size }
     }
 
     // test if implementation meets criteria from the description, like:
