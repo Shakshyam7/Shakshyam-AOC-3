@@ -1,25 +1,34 @@
 # Shakshyam-AOC-3
 
-Welcome to the Advent of Code[^aoc] Kotlin project created by [shakshyam7][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
+# Reflection
+For Advent of code 3 assignment I code from 2017 Day 4 --High-Entropy Passphrases--
 
-In this repository, shakshyam7 is about to provide solutions for the puzzles using [Kotlin][kotlin] language.
+### Solution
+~~~
+fun part1(input: List<String>): Int{
+    var valid = 0
+    for (word in input) {
+       val words = word.split(" ")
+       if (words.size == words.toSet().size) { 
+           valid += 1
+       }
+    return valid
+   }
+}   
+~~~
 
-If you're stuck with Kotlin-specific questions or anything related to this template, check out the following resources:
+The way i solved is I looped through the every word in input. Next I split the word by space since each passphrase were seperated by space. Then I check condition if the size of the words is equal to size of the words after transforming it to words as set does not contain duplicate value and returned the result. 
 
-- [Kotlin docs][docs]
-- [Kotlin Slack][slack]
-- Template [issue tracker][issues]
-
-
-[^aoc]:
-    [Advent of Code][aoc] – An annual event of Christmas-oriented programming challenges started December 2015.
-    Every year since then, beginning on the first day of December, a programming puzzle is published every day for twenty-five days.
-    You can solve the puzzle and provide an answer using the language of your choice.
-
-[aoc]: https://adventofcode.com
-[docs]: https://kotlinlang.org/docs/home.html
-[github]: https://github.com/shakshyam7
-[issues]: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template/issues
-[kotlin]: https://kotlinlang.org
-[slack]: https://surveys.jetbrains.com/s3/kotlin-slack-sign-up
-[template]: https://github.com/kotlin-hands-on/advent-of-code-kotlin-template
+Second soloution I just refactored the code to more idiomatic approach by usinf map and count function.
+~~~
+fun part2(input: List<String>): Int {
+    return input
+        .map { it.split(" ") }
+        .count { it.size == it.toSet().size }
+ }
+~~~ 
+ It took me about 5-6 hours to come up with the solution. I did not discuss this problem with peers.
+ 
+ I looked at kotlin documentation, learn CS online for map and set. The resource at learn CS for map and set came pretty useful for this challenge.
+ 
+ When I first looked at the problem I felt challenging but when i think the flow of program what we need to abstract and tried it worked after doing for several times. The one think I realized from this assignments is first think about how to approach the problem instead of randomly trying the solution then try another approach if its not working.
